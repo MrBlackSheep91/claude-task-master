@@ -1,205 +1,205 @@
-# Task Master Command Reference
+# Referencia de Comandos de Task Master
 
-Here's a comprehensive reference of all available commands:
+Aquí hay una referencia completa de todos los comandos disponibles:
 
-## Parse PRD
+## Analizar PRD
 
 ```bash
-# Parse a PRD file and generate tasks
-task-master parse-prd <prd-file.txt>
+# Analizar un archivo PRD y generar tareas
+task-master parse-prd <archivo-prd.txt>
 
-# Limit the number of tasks generated
-task-master parse-prd <prd-file.txt> --num-tasks=10
+# Limitar el número de tareas generadas
+task-master parse-prd <archivo-prd.txt> --num-tasks=10
 ```
 
-## List Tasks
+## Listar Tareas
 
 ```bash
-# List all tasks
+# Listar todas las tareas
 task-master list
 
-# List tasks with a specific status
-task-master list --status=<status>
+# Listar tareas con un estado específico
+task-master list --status=<estado>
 
-# List tasks with subtasks
+# Listar tareas con subtareas
 task-master list --with-subtasks
 
-# List tasks with a specific status and include subtasks
-task-master list --status=<status> --with-subtasks
+# Listar tareas con un estado específico e incluir subtareas
+task-master list --status=<estado> --with-subtasks
 ```
 
-## Show Next Task
+## Mostrar Siguiente Tarea
 
 ```bash
-# Show the next task to work on based on dependencies and status
+# Mostrar la siguiente tarea en la que trabajar basada en dependencias y estado
 task-master next
 ```
 
-## Show Specific Task
+## Mostrar Tarea Específica
 
 ```bash
-# Show details of a specific task
+# Mostrar detalles de una tarea específica
 task-master show <id>
-# or
+# o
 task-master show --id=<id>
 
-# View a specific subtask (e.g., subtask 2 of task 1)
+# Ver una subtarea específica (p.ej., subtarea 2 de la tarea 1)
 task-master show 1.2
 ```
 
-## Update Tasks
+## Actualizar Tareas
 
 ```bash
-# Update tasks from a specific ID and provide context
+# Actualizar tareas desde un ID específico y proporcionar contexto
 task-master update --from=<id> --prompt="<prompt>"
 ```
 
-## Update a Specific Task
+## Actualizar una Tarea Específica
 
 ```bash
-# Update a single task by ID with new information
+# Actualizar una sola tarea por ID con nueva información
 task-master update-task --id=<id> --prompt="<prompt>"
 
-# Use research-backed updates with Perplexity AI
+# Usar actualizaciones respaldadas por investigación con Perplexity AI
 task-master update-task --id=<id> --prompt="<prompt>" --research
 ```
 
-## Update a Subtask
+## Actualizar una Subtarea
 
 ```bash
-# Append additional information to a specific subtask
+# Añadir información adicional a una subtarea específica
 task-master update-subtask --id=<parentId.subtaskId> --prompt="<prompt>"
 
-# Example: Add details about API rate limiting to subtask 2 of task 5
-task-master update-subtask --id=5.2 --prompt="Add rate limiting of 100 requests per minute"
+# Ejemplo: Añadir detalles sobre limitación de tasa de API a la subtarea 2 de la tarea 5
+task-master update-subtask --id=5.2 --prompt="Añadir limitación de tasa de 100 solicitudes por minuto"
 
-# Use research-backed updates with Perplexity AI
+# Usar actualizaciones respaldadas por investigación con Perplexity AI
 task-master update-subtask --id=<parentId.subtaskId> --prompt="<prompt>" --research
 ```
 
-Unlike the `update-task` command which replaces task information, the `update-subtask` command _appends_ new information to the existing subtask details, marking it with a timestamp. This is useful for iteratively enhancing subtasks while preserving the original content.
+A diferencia del comando `update-task` que reemplaza la información de la tarea, el comando `update-subtask` _añade_ nueva información a los detalles de la subtarea existente, marcándola con una marca de tiempo. Esto es útil para mejorar iterativamente las subtareas mientras se preserva el contenido original.
 
-## Generate Task Files
+## Generar Archivos de Tareas
 
 ```bash
-# Generate individual task files from tasks.json
+# Generar archivos de tareas individuales desde tasks.json
 task-master generate
 ```
 
-## Set Task Status
+## Establecer Estado de Tarea
 
 ```bash
-# Set status of a single task
-task-master set-status --id=<id> --status=<status>
+# Establecer estado de una sola tarea
+task-master set-status --id=<id> --status=<estado>
 
-# Set status for multiple tasks
-task-master set-status --id=1,2,3 --status=<status>
+# Establecer estado para múltiples tareas
+task-master set-status --id=1,2,3 --status=<estado>
 
-# Set status for subtasks
-task-master set-status --id=1.1,1.2 --status=<status>
+# Establecer estado para subtareas
+task-master set-status --id=1.1,1.2 --status=<estado>
 ```
 
-When marking a task as "done", all of its subtasks will automatically be marked as "done" as well.
+Cuando se marca una tarea como "done" (completada), todas sus subtareas también se marcarán automáticamente como "done".
 
-## Expand Tasks
+## Expandir Tareas
 
 ```bash
-# Expand a specific task with subtasks
-task-master expand --id=<id> --num=<number>
+# Expandir una tarea específica con subtareas
+task-master expand --id=<id> --num=<número>
 
-# Expand with additional context
-task-master expand --id=<id> --prompt="<context>"
+# Expandir con contexto adicional
+task-master expand --id=<id> --prompt="<contexto>"
 
-# Expand all pending tasks
+# Expandir todas las tareas pendientes
 task-master expand --all
 
-# Force regeneration of subtasks for tasks that already have them
+# Forzar regeneración de subtareas para tareas que ya las tienen
 task-master expand --all --force
 
-# Research-backed subtask generation for a specific task
+# Generación de subtareas respaldada por investigación para una tarea específica
 task-master expand --id=<id> --research
 
-# Research-backed generation for all tasks
+# Generación respaldada por investigación para todas las tareas
 task-master expand --all --research
 ```
 
-## Clear Subtasks
+## Borrar Subtareas
 
 ```bash
-# Clear subtasks from a specific task
+# Borrar subtareas de una tarea específica
 task-master clear-subtasks --id=<id>
 
-# Clear subtasks from multiple tasks
+# Borrar subtareas de múltiples tareas
 task-master clear-subtasks --id=1,2,3
 
-# Clear subtasks from all tasks
+# Borrar subtareas de todas las tareas
 task-master clear-subtasks --all
 ```
 
-## Analyze Task Complexity
+## Analizar Complejidad de Tareas
 
 ```bash
-# Analyze complexity of all tasks
+# Analizar complejidad de todas las tareas
 task-master analyze-complexity
 
-# Save report to a custom location
-task-master analyze-complexity --output=my-report.json
+# Guardar informe en una ubicación personalizada
+task-master analyze-complexity --output=mi-informe.json
 
-# Use a specific LLM model
+# Usar un modelo LLM específico
 task-master analyze-complexity --model=claude-3-opus-20240229
 
-# Set a custom complexity threshold (1-10)
+# Establecer un umbral de complejidad personalizado (1-10)
 task-master analyze-complexity --threshold=6
 
-# Use an alternative tasks file
-task-master analyze-complexity --file=custom-tasks.json
+# Usar un archivo de tareas alternativo
+task-master analyze-complexity --file=tareas-personalizadas.json
 
-# Use Perplexity AI for research-backed complexity analysis
+# Usar Perplexity AI para análisis de complejidad respaldado por investigación
 task-master analyze-complexity --research
 ```
 
-## View Complexity Report
+## Ver Informe de Complejidad
 
 ```bash
-# Display the task complexity analysis report
+# Mostrar el informe de análisis de complejidad de tareas
 task-master complexity-report
 
-# View a report at a custom location
-task-master complexity-report --file=my-report.json
+# Ver un informe en una ubicación personalizada
+task-master complexity-report --file=mi-informe.json
 ```
 
-## Managing Task Dependencies
+## Gestionar Dependencias de Tareas
 
 ```bash
-# Add a dependency to a task
+# Añadir una dependencia a una tarea
 task-master add-dependency --id=<id> --depends-on=<id>
 
-# Remove a dependency from a task
+# Eliminar una dependencia de una tarea
 task-master remove-dependency --id=<id> --depends-on=<id>
 
-# Validate dependencies without fixing them
+# Validar dependencias sin arreglarlas
 task-master validate-dependencies
 
-# Find and fix invalid dependencies automatically
+# Encontrar y arreglar dependencias inválidas automáticamente
 task-master fix-dependencies
 ```
 
-## Add a New Task
+## Añadir una Nueva Tarea
 
 ```bash
-# Add a new task using AI
-task-master add-task --prompt="Description of the new task"
+# Añadir una nueva tarea usando IA
+task-master add-task --prompt="Descripción de la nueva tarea"
 
-# Add a task with dependencies
-task-master add-task --prompt="Description" --dependencies=1,2,3
+# Añadir una tarea con dependencias
+task-master add-task --prompt="Descripción" --dependencies=1,2,3
 
-# Add a task with priority
-task-master add-task --prompt="Description" --priority=high
+# Añadir una tarea con prioridad
+task-master add-task --prompt="Descripción" --priority=high
 ```
 
-## Initialize a Project
+## Inicializar un Proyecto
 
 ```bash
-# Initialize a new project with Task Master structure
+# Inicializar un nuevo proyecto con estructura de Task Master
 task-master init
 ```
