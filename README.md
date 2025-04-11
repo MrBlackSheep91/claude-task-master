@@ -1,26 +1,26 @@
-# Task Master [![GitHub stars](https://img.shields.io/github/stars/eyaltoledano/claude-task-master?style=social)](https://github.com/eyaltoledano/claude-task-master/stargazers)
+# Task Master [![Estrellas en GitHub](https://img.shields.io/github/stars/eyaltoledano/claude-task-master?style=social)](https://github.com/eyaltoledano/claude-task-master/stargazers)
 
-[![CI](https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml/badge.svg)](https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml) [![npm version](https://badge.fury.io/js/task-master-ai.svg)](https://badge.fury.io/js/task-master-ai) ![Discord Follow](https://dcbadge.limes.pink/api/server/https://discord.gg/2ms58QJjqp?style=flat) [![License: MIT with Commons Clause](https://img.shields.io/badge/license-MIT%20with%20Commons%20Clause-blue.svg)](LICENSE)
+[![CI](https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml/badge.svg)](https://github.com/eyaltoledano/claude-task-master/actions/workflows/ci.yml) [![versión npm](https://badge.fury.io/js/task-master-ai.svg)](https://badge.fury.io/js/task-master-ai) ![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/2ms58QJjqp?style=flat) [![Licencia: MIT con Cláusula Commons](https://img.shields.io/badge/license-MIT%20with%20Commons%20Clause-blue.svg)](LICENSE)
 
-### By [@eyaltoledano](https://x.com/eyaltoledano) & [@RalphEcom](https://x.com/RalphEcom)
+### Por [@eyaltoledano](https://x.com/eyaltoledano) y [@RalphEcom](https://x.com/RalphEcom)
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/eyaltoledano?style=flat)](https://x.com/eyaltoledano)
-[![Twitter Follow](https://img.shields.io/twitter/follow/RalphEcom?style=flat)](https://x.com/RalphEcom)
+[![Seguir en Twitter](https://img.shields.io/twitter/follow/eyaltoledano?style=flat)](https://x.com/eyaltoledano)
+[![Seguir en Twitter](https://img.shields.io/twitter/follow/RalphEcom?style=flat)](https://x.com/RalphEcom)
 
-A task management system for AI-driven development with Claude, designed to work seamlessly with Cursor AI.
+Un sistema de gestión de tareas para desarrollo impulsado por IA con Claude, diseñado para funcionar perfectamente con Cursor AI.
 
-## Requirements
+## Requisitos
 
-- Anthropic API key (Claude API)
-- OpenAI SDK (for Perplexity API integration, optional)
+- Clave API de Anthropic (API de Claude)
+- SDK de OpenAI (para integración con API de Perplexity, opcional)
 
-## Quick Start
+## Inicio Rápido
 
-### Option 1 | MCP (Recommended):
+### Opción 1 | MCP (Recomendada):
 
-MCP (Model Control Protocol) provides the easiest way to get started with Task Master directly in your editor.
+MCP (Protocolo de Control de Modelos) proporciona la forma más sencilla de comenzar con Task Master directamente en tu editor.
 
-1. **Add the MCP config to your editor** (Cursor recommended, but it works with other text editors):
+1. **Añade la configuración MCP a tu editor** (Se recomienda Cursor, pero funciona con otros editores de texto):
 
 ```json
 {
@@ -29,8 +29,8 @@ MCP (Model Control Protocol) provides the easiest way to get started with Task M
 			"command": "npx",
 			"args": ["-y", "task-master-mcp"],
 			"env": {
-				"ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_API_KEY_HERE",
-				"PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY_HERE",
+				"ANTHROPIC_API_KEY": "TU_CLAVE_API_ANTHROPIC_AQUÍ",
+				"PERPLEXITY_API_KEY": "TU_CLAVE_API_PERPLEXITY_AQUÍ",
 				"MODEL": "claude-3-7-sonnet-20250219",
 				"PERPLEXITY_MODEL": "sonar-pro",
 				"MAX_TOKENS": 64000,
@@ -43,87 +43,87 @@ MCP (Model Control Protocol) provides the easiest way to get started with Task M
 }
 ```
 
-2. **Enable the MCP** in your editor
+2. **Habilita el MCP** en tu editor
 
-3. **Prompt the AI** to initialize Task Master:
+3. **Solicita a la IA** inicializar Task Master:
 
 ```
-Can you please initialize taskmaster-ai into my project?
+¿Puedes inicializar taskmaster-ai en mi proyecto?
 ```
 
-4. **Use common commands** directly through your AI assistant:
+4. **Usa comandos comunes** directamente a través de tu asistente de IA:
 
 ```txt
-Can you parse my PRD at scripts/prd.txt?
-What's the next task I should work on?
-Can you help me implement task 3?
-Can you help me expand task 4?
+¿Puedes analizar mi PRD en scripts/prd.txt?
+¿Cuál es la siguiente tarea en la que debería trabajar?
+¿Puedes ayudarme a implementar la tarea 3?
+¿Puedes ayudarme a expandir la tarea 4?
 ```
 
-### Option 2: Using Command Line
+### Opción 2: Usando la Línea de Comandos
 
-#### Installation
+#### Instalación
 
 ```bash
-# Install globally
+# Instalar globalmente
 npm install -g task-master-ai
 
-# OR install locally within your project
+# O instalar localmente dentro de tu proyecto
 npm install task-master-ai
 ```
 
-#### Initialize a new project
+#### Inicializar un nuevo proyecto
 
 ```bash
-# If installed globally
+# Si está instalado globalmente
 task-master init
 
-# If installed locally
+# Si está instalado localmente
 npx task-master-init
 ```
 
-This will prompt you for project details and set up a new project with the necessary files and structure.
+Esto te pedirá detalles del proyecto y configurará un nuevo proyecto con los archivos y la estructura necesarios.
 
-#### Common Commands
+#### Comandos Comunes
 
 ```bash
-# Initialize a new project
+# Inicializar un nuevo proyecto
 task-master init
 
-# Parse a PRD and generate tasks
-task-master parse-prd your-prd.txt
+# Analizar un PRD y generar tareas
+task-master parse-prd tu-prd.txt
 
-# List all tasks
+# Listar todas las tareas
 task-master list
 
-# Show the next task to work on
+# Mostrar la siguiente tarea en la que trabajar
 task-master next
 
-# Generate task files
+# Generar archivos de tareas
 task-master generate
 ```
 
-## Documentation
+## Documentación
 
-For more detailed information, check out the documentation in the `docs` directory:
+Para información más detallada, consulta la documentación en el directorio `docs`:
 
-- [Configuration Guide](docs/configuration.md) - Set up environment variables and customize Task Master
-- [Tutorial](docs/tutorial.md) - Step-by-step guide to getting started with Task Master
-- [Command Reference](docs/command-reference.md) - Complete list of all available commands
-- [Task Structure](docs/task-structure.md) - Understanding the task format and features
-- [Example Interactions](docs/examples.md) - Common Cursor AI interaction examples
+- [Guía de Configuración](docs/configuration.md) - Configura variables de entorno y personaliza Task Master
+- [Tutorial](docs/tutorial.md) - Guía paso a paso para comenzar con Task Master
+- [Referencia de Comandos](docs/command-reference.md) - Lista completa de todos los comandos disponibles
+- [Estructura de Tareas](docs/task-structure.md) - Entendiendo el formato y características de las tareas
+- [Ejemplos de Interacciones](docs/examples.md) - Ejemplos comunes de interacción con Cursor AI
 
-## Troubleshooting
+## Solución de Problemas
 
-### If `task-master init` doesn't respond:
+### Si `task-master init` no responde:
 
-Try running it with Node directly:
+Intenta ejecutarlo directamente con Node:
 
 ```bash
 node node_modules/claude-task-master/scripts/init.js
 ```
 
-Or clone the repository and run:
+O clona el repositorio y ejecuta:
 
 ```bash
 git clone https://github.com/eyaltoledano/claude-task-master.git
@@ -131,31 +131,31 @@ cd claude-task-master
 node scripts/init.js
 ```
 
-## Contributors
+## Colaboradores
 
 <a href="https://github.com/eyaltoledano/claude-task-master/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=eyaltoledano/claude-task-master" alt="Task Master project contributors" />
+  <img src="https://contrib.rocks/image?repo=eyaltoledano/claude-task-master" alt="Colaboradores del proyecto Task Master" />
 </a>
 
-## Star History
+## Historial de Estrellas
 
-[![Star History Chart](https://api.star-history.com/svg?repos=eyaltoledano/claude-task-master&type=Timeline)](https://www.star-history.com/#eyaltoledano/claude-task-master&Timeline)
+[![Gráfico de Historial de Estrellas](https://api.star-history.com/svg?repos=eyaltoledano/claude-task-master&type=Timeline)](https://www.star-history.com/#eyaltoledano/claude-task-master&Timeline)
 
-## Licensing
+## Licencia
 
-Task Master is licensed under the MIT License with Commons Clause. This means you can:
+Task Master está licenciado bajo la Licencia MIT con Cláusula Commons. Esto significa que puedes:
 
-✅ **Allowed**:
+✅ **Permitido**:
 
-- Use Task Master for any purpose (personal, commercial, academic)
-- Modify the code
-- Distribute copies
-- Create and sell products built using Task Master
+- Usar Task Master para cualquier propósito (personal, comercial, académico)
+- Modificar el código
+- Distribuir copias
+- Crear y vender productos construidos usando Task Master
 
-❌ **Not Allowed**:
+❌ **No Permitido**:
 
-- Sell Task Master itself
-- Offer Task Master as a hosted service
-- Create competing products based on Task Master
+- Vender Task Master en sí mismo
+- Ofrecer Task Master como un servicio alojado
+- Crear productos competidores basados en Task Master
 
-See the [LICENSE](LICENSE) file for the complete license text and [licensing details](docs/licensing.md) for more information.
+Consulta el archivo [LICENSE](LICENSE) para el texto completo de la licencia y [detalles de licencia](docs/licensing.md) para más información.
