@@ -1,18 +1,18 @@
-# Licensing
+# Licencia
 
-Task Master is licensed under the MIT License with Commons Clause. This means you can:
+Task Master está licenciado bajo la Licencia MIT con Cláusula Commons. Esto significa que puedes:
 
-## ✅ Allowed:
+## ✅ Permitido:
 
-- Use Task Master for any purpose (personal, commercial, academic)
-- Modify the code
-- Distribute copies
-- Create and sell products built using Task Master
+- Usar Task Master para cualquier propósito (personal, comercial, académico)
+- Modificar el código
+- Distribuir copias
+- Crear y vender productos construidos usando Task Master
 
-## ❌ Not Allowed:
+## ❌ No Permitido:
 
-- Sell Task Master itself
-- Offer Task Master as a hosted service
-- Create competing products based on Task Master
+- Vender Task Master en sí mismo
+- Ofrecer Task Master como un servicio alojado
+- Crear productos competidores basados en Task Master
 
-See the [LICENSE](../LICENSE) file for the complete license text.
+Consulta el archivo [LICENSE](../LICENSE) para el texto completo de la licencia.
