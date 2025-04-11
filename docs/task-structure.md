@@ -1,139 +1,139 @@
-# Task Structure
+# Estructura de Tareas
 
-Tasks in Task Master follow a specific format designed to provide comprehensive information for both humans and AI assistants.
+Las tareas en Task Master siguen un formato específico diseñado para proporcionar información completa tanto para humanos como para asistentes de IA.
 
-## Task Fields in tasks.json
+## Campos de Tareas en tasks.json
 
-Tasks in tasks.json have the following structure:
+Las tareas en tasks.json tienen la siguiente estructura:
 
-- `id`: Unique identifier for the task (Example: `1`)
-- `title`: Brief, descriptive title of the task (Example: `"Initialize Repo"`)
-- `description`: Concise description of what the task involves (Example: `"Create a new repository, set up initial structure."`)
-- `status`: Current state of the task (Example: `"pending"`, `"done"`, `"deferred"`)
-- `dependencies`: IDs of tasks that must be completed before this task (Example: `[1, 2]`)
-  - Dependencies are displayed with status indicators (✅ for completed, ⏱️ for pending)
-  - This helps quickly identify which prerequisite tasks are blocking work
-- `priority`: Importance level of the task (Example: `"high"`, `"medium"`, `"low"`)
-- `details`: In-depth implementation instructions (Example: `"Use GitHub client ID/secret, handle callback, set session token."`)
-- `testStrategy`: Verification approach (Example: `"Deploy and call endpoint to confirm 'Hello World' response."`)
-- `subtasks`: List of smaller, more specific tasks that make up the main task (Example: `[{"id": 1, "title": "Configure OAuth", ...}]`)
+- `id`: Identificador único para la tarea (Ejemplo: `1`)
+- `title`: Título breve y descriptivo de la tarea (Ejemplo: `"Inicializar Repositorio"`)
+- `description`: Descripción concisa de lo que implica la tarea (Ejemplo: `"Crear un nuevo repositorio, configurar estructura inicial."`)
+- `status`: Estado actual de la tarea (Ejemplo: `"pending"`, `"done"`, `"deferred"`)
+- `dependencies`: IDs de tareas que deben completarse antes de esta tarea (Ejemplo: `[1, 2]`)
+  - Las dependencias se muestran con indicadores de estado (✅ para completadas, ⏱️ para pendientes)
+  - Esto ayuda a identificar rápidamente qué tareas prerrequisito están bloqueando el trabajo
+- `priority`: Nivel de importancia de la tarea (Ejemplo: `"high"`, `"medium"`, `"low"`)
+- `details`: Instrucciones de implementación en profundidad (Ejemplo: `"Usar ID/secreto de cliente GitHub, manejar callback, establecer token de sesión."`)
+- `testStrategy`: Enfoque de verificación (Ejemplo: `"Desplegar y llamar al endpoint para confirmar respuesta 'Hello World'."`)
+- `subtasks`: Lista de tareas más pequeñas y específicas que componen la tarea principal (Ejemplo: `[{"id": 1, "title": "Configurar OAuth", ...}]`)
 
-## Task File Format
+## Formato de Archivo de Tarea
 
-Individual task files follow this format:
+Los archivos de tareas individuales siguen este formato:
 
 ```
 # Task ID: <id>
-# Title: <title>
-# Status: <status>
-# Dependencies: <comma-separated list of dependency IDs>
-# Priority: <priority>
-# Description: <brief description>
+# Title: <título>
+# Status: <estado>
+# Dependencies: <lista de IDs de dependencias separados por comas>
+# Priority: <prioridad>
+# Description: <descripción breve>
 # Details:
-<detailed implementation notes>
+<notas detalladas de implementación>
 
 # Test Strategy:
-<verification approach>
+<enfoque de verificación>
 ```
 
-## Features in Detail
+## Características en Detalle
 
-### Analyzing Task Complexity
+### Analizando la Complejidad de Tareas
 
-The `analyze-complexity` command:
+El comando `analyze-complexity`:
 
-- Analyzes each task using AI to assess its complexity on a scale of 1-10
-- Recommends optimal number of subtasks based on configured DEFAULT_SUBTASKS
-- Generates tailored prompts for expanding each task
-- Creates a comprehensive JSON report with ready-to-use commands
-- Saves the report to scripts/task-complexity-report.json by default
+- Analiza cada tarea usando IA para evaluar su complejidad en una escala de 1-10
+- Recomienda un número óptimo de subtareas basado en DEFAULT_SUBTASKS configurado
+- Genera prompts personalizados para expandir cada tarea
+- Crea un informe JSON completo con comandos listos para usar
+- Guarda el informe en scripts/task-complexity-report.json por defecto
 
-The generated report contains:
+El informe generado contiene:
 
-- Complexity analysis for each task (scored 1-10)
-- Recommended number of subtasks based on complexity
-- AI-generated expansion prompts customized for each task
-- Ready-to-run expansion commands directly within each task analysis
+- Análisis de complejidad para cada tarea (puntuada de 1-10)
+- Número recomendado de subtareas basado en la complejidad
+- Prompts de expansión generados por IA personalizados para cada tarea
+- Comandos de expansión listos para ejecutar directamente dentro de cada análisis de tarea
 
-### Viewing Complexity Report
+### Visualizando el Informe de Complejidad
 
-The `complexity-report` command:
+El comando `complexity-report`:
 
-- Displays a formatted, easy-to-read version of the complexity analysis report
-- Shows tasks organized by complexity score (highest to lowest)
-- Provides complexity distribution statistics (low, medium, high)
-- Highlights tasks recommended for expansion based on threshold score
-- Includes ready-to-use expansion commands for each complex task
-- If no report exists, offers to generate one on the spot
+- Muestra una versión formateada y fácil de leer del informe de análisis de complejidad
+- Muestra tareas organizadas por puntuación de complejidad (de mayor a menor)
+- Proporciona estadísticas de distribución de complejidad (baja, media, alta)
+- Destaca tareas recomendadas para expansión basadas en el umbral de puntuación
+- Incluye comandos de expansión listos para usar para cada tarea compleja
+- Si no existe un informe, ofrece generar uno en el momento
 
-### Smart Task Expansion
+### Expansión Inteligente de Tareas
 
-The `expand` command automatically checks for and uses the complexity report:
+El comando `expand` comprueba automáticamente y usa el informe de complejidad:
 
-When a complexity report exists:
+Cuando existe un informe de complejidad:
 
-- Tasks are automatically expanded using the recommended subtask count and prompts
-- When expanding all tasks, they're processed in order of complexity (highest first)
-- Research-backed generation is preserved from the complexity analysis
-- You can still override recommendations with explicit command-line options
+- Las tareas se expanden automáticamente usando el recuento de subtareas recomendado y los prompts
+- Al expandir todas las tareas, se procesan en orden de complejidad (primero las más altas)
+- La generación respaldada por investigación se preserva del análisis de complejidad
+- Todavía puedes anular recomendaciones con opciones explícitas de línea de comandos
 
-Example workflow:
+Ejemplo de flujo de trabajo:
 
 ```bash
-# Generate the complexity analysis report with research capabilities
+# Generar el informe de análisis de complejidad con capacidades de investigación
 task-master analyze-complexity --research
 
-# Review the report in a readable format
+# Revisar el informe en un formato legible
 task-master complexity-report
 
-# Expand tasks using the optimized recommendations
+# Expandir tareas usando las recomendaciones optimizadas
 task-master expand --id=8
-# or expand all tasks
+# o expandir todas las tareas
 task-master expand --all
 ```
 
-### Finding the Next Task
+### Encontrando la Siguiente Tarea
 
-The `next` command:
+El comando `next`:
 
-- Identifies tasks that are pending/in-progress and have all dependencies satisfied
-- Prioritizes tasks by priority level, dependency count, and task ID
-- Displays comprehensive information about the selected task:
-  - Basic task details (ID, title, priority, dependencies)
-  - Implementation details
-  - Subtasks (if they exist)
-- Provides contextual suggested actions:
-  - Command to mark the task as in-progress
-  - Command to mark the task as done
-  - Commands for working with subtasks
+- Identifica tareas que están pendientes/en progreso y tienen todas las dependencias satisfechas
+- Prioriza tareas por nivel de prioridad, recuento de dependencias y ID de tarea
+- Muestra información completa sobre la tarea seleccionada:
+  - Detalles básicos de la tarea (ID, título, prioridad, dependencias)
+  - Detalles de implementación
+  - Subtareas (si existen)
+- Proporciona acciones sugeridas contextuales:
+  - Comando para marcar la tarea como en progreso
+  - Comando para marcar la tarea como completada
+  - Comandos para trabajar con subtareas
 
-### Viewing Specific Task Details
+### Visualizando Detalles de Tarea Específicos
 
-The `show` command:
+El comando `show`:
 
-- Displays comprehensive details about a specific task or subtask
-- Shows task status, priority, dependencies, and detailed implementation notes
-- For parent tasks, displays all subtasks and their status
-- For subtasks, shows parent task relationship
-- Provides contextual action suggestions based on the task's state
-- Works with both regular tasks and subtasks (using the format taskId.subtaskId)
+- Muestra detalles completos sobre una tarea o subtarea específica
+- Muestra estado de la tarea, prioridad, dependencias y notas detalladas de implementación
+- Para tareas principales, muestra todas las subtareas y su estado
+- Para subtareas, muestra la relación con la tarea principal
+- Proporciona sugerencias de acción contextuales basadas en el estado de la tarea
+- Funciona tanto con tareas regulares como subtareas (usando el formato tareaId.subtareaId)
 
-## Best Practices for AI-Driven Development
+## Mejores Prácticas para Desarrollo Impulsado por IA
 
-1. **Start with a detailed PRD**: The more detailed your PRD, the better the generated tasks will be.
+1. **Comienza con un PRD detallado**: Cuanto más detallado sea tu PRD, mejores serán las tareas generadas.
 
-2. **Review generated tasks**: After parsing the PRD, review the tasks to ensure they make sense and have appropriate dependencies.
+2. **Revisa las tareas generadas**: Después de analizar el PRD, revisa las tareas para asegurarte de que tienen sentido y tienen dependencias apropiadas.
 
-3. **Analyze task complexity**: Use the complexity analysis feature to identify which tasks should be broken down further.
+3. **Analiza la complejidad de las tareas**: Usa la característica de análisis de complejidad para identificar qué tareas deben desglosarse más.
 
-4. **Follow the dependency chain**: Always respect task dependencies - the Cursor agent will help with this.
+4. **Sigue la cadena de dependencias**: Siempre respeta las dependencias de tareas - el agente de Cursor te ayudará con esto.
 
-5. **Update as you go**: If your implementation diverges from the plan, use the update command to keep future tasks aligned with your current approach.
+5. **Actualiza sobre la marcha**: Si tu implementación se desvía del plan, usa el comando update para mantener las tareas futuras alineadas con tu enfoque actual.
 
-6. **Break down complex tasks**: Use the expand command to break down complex tasks into manageable subtasks.
+6. **Desglosa tareas complejas**: Usa el comando expand para desglosar tareas complejas en subtareas manejables.
 
-7. **Regenerate task files**: After any updates to tasks.json, regenerate the task files to keep them in sync.
+7. **Regenera archivos de tareas**: Después de cualquier actualización a tasks.json, regenera los archivos de tareas para mantenerlos sincronizados.
 
-8. **Communicate context to the agent**: When asking the Cursor agent to help with a task, provide context about what you're trying to achieve.
+8. **Comunica contexto al agente**: Cuando pidas al agente de Cursor que te ayude con una tarea, proporciona contexto sobre lo que estás tratando de lograr.
 
-9. **Validate dependencies**: Periodically run the validate-dependencies command to check for invalid or circular dependencies.
+9. **Valida dependencias**: Periódicamente ejecuta el comando validate-dependencies para comprobar dependencias inválidas o circulares.
