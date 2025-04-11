@@ -1,16 +1,16 @@
-# Task Master Tutorial
+# Tutorial de Task Master
 
-This tutorial will guide you through setting up and using Task Master for AI-driven development.
+Este tutorial te guiará a través de la configuración y uso de Task Master para desarrollo impulsado por IA.
 
-## Initial Setup
+## Configuración Inicial
 
-There are two ways to set up Task Master: using MCP (recommended) or via npm installation.
+Hay dos formas de configurar Task Master: usando MCP (recomendado) o mediante instalación npm.
 
-### Option 1: Using MCP (Recommended)
+### Opción 1: Usando MCP (Recomendado)
 
-MCP (Model Control Protocol) provides the easiest way to get started with Task Master directly in your editor.
+MCP (Model Control Protocol) proporciona la forma más sencilla de comenzar con Task Master directamente en tu editor.
 
-1. **Add the MCP config to your editor** (Cursor recommended, but it works with other text editors):
+1. **Añade la configuración MCP a tu editor** (Se recomienda Cursor, pero funciona con otros editores de texto):
 
 ```json
 {
@@ -19,8 +19,8 @@ MCP (Model Control Protocol) provides the easiest way to get started with Task M
 			"command": "npx",
 			"args": ["-y", "task-master-mcp"],
 			"env": {
-				"ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_API_KEY_HERE",
-				"PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY_HERE",
+				"ANTHROPIC_API_KEY": "TU_CLAVE_API_ANTHROPIC_AQUÍ",
+				"PERPLEXITY_API_KEY": "TU_CLAVE_API_PERPLEXITY_AQUÍ",
 				"MODEL": "claude-3-7-sonnet-20250219",
 				"PERPLEXITY_MODEL": "sonar-pro",
 				"MAX_TOKENS": 64000,
@@ -33,323 +33,323 @@ MCP (Model Control Protocol) provides the easiest way to get started with Task M
 }
 ```
 
-2. **Enable the MCP** in your editor settings
+2. **Habilita el MCP** en la configuración de tu editor
 
-3. **Prompt the AI** to initialize Task Master:
-
-```
-Can you please initialize taskmaster-ai into my project?
-```
-
-The AI will:
-
-- Create necessary project structure
-- Set up initial configuration files
-- Guide you through the rest of the process
-
-4. Place your PRD document in the `scripts/` directory (e.g., `scripts/prd.txt`)
-
-5. **Use natural language commands** to interact with Task Master:
+3. **Solicita a la IA** inicializar Task Master:
 
 ```
-Can you parse my PRD at scripts/prd.txt?
-What's the next task I should work on?
-Can you help me implement task 3?
+¿Puedes inicializar taskmaster-ai en mi proyecto?
 ```
 
-### Option 2: Manual Installation
+La IA:
 
-If you prefer to use the command line interface directly:
+- Creará la estructura necesaria del proyecto
+- Configurará los archivos de configuración iniciales
+- Te guiará a través del resto del proceso
+
+4. Coloca tu documento PRD en el directorio `scripts/` (p.ej., `scripts/prd.txt`)
+
+5. **Usa comandos en lenguaje natural** para interactuar con Task Master:
+
+```
+¿Puedes analizar mi PRD en scripts/prd.txt?
+¿Cuál es la siguiente tarea en la que debería trabajar?
+¿Puedes ayudarme a implementar la tarea 3?
+```
+
+### Opción 2: Instalación Manual
+
+Si prefieres usar la interfaz de línea de comandos directamente:
 
 ```bash
-# Install globally
+# Instalar globalmente
 npm install -g task-master-ai
 
-# OR install locally within your project
+# O instalar localmente dentro de tu proyecto
 npm install task-master-ai
 ```
 
-Initialize a new project:
+Inicializa un nuevo proyecto:
 
 ```bash
-# If installed globally
+# Si está instalado globalmente
 task-master init
 
-# If installed locally
+# Si está instalado localmente
 npx task-master-init
 ```
 
-This will prompt you for project details and set up a new project with the necessary files and structure.
+Esto te pedirá detalles del proyecto y configurará un nuevo proyecto con los archivos y la estructura necesarios.
 
-## Common Commands
+## Comandos Comunes
 
-After setting up Task Master, you can use these commands (either via AI prompts or CLI):
+Después de configurar Task Master, puedes usar estos comandos (ya sea mediante prompts de IA o CLI):
 
 ```bash
-# Parse a PRD and generate tasks
-task-master parse-prd your-prd.txt
+# Analizar un PRD y generar tareas
+task-master parse-prd tu-prd.txt
 
-# List all tasks
+# Listar todas las tareas
 task-master list
 
-# Show the next task to work on
+# Mostrar la siguiente tarea en la que trabajar
 task-master next
 
-# Generate task files
+# Generar archivos de tareas
 task-master generate
 ```
 
-## Setting up Cursor AI Integration
+## Configuración de la Integración con Cursor AI
 
-Task Master is designed to work seamlessly with [Cursor AI](https://www.cursor.so/), providing a structured workflow for AI-driven development.
+Task Master está diseñado para funcionar perfectamente con [Cursor AI](https://www.cursor.so/), proporcionando un flujo de trabajo estructurado para el desarrollo impulsado por IA.
 
-### Using Cursor with MCP (Recommended)
+### Usando Cursor con MCP (Recomendado)
 
-If you've already set up Task Master with MCP in Cursor, the integration is automatic. You can simply use natural language to interact with Task Master:
-
-```
-What tasks are available to work on next?
-Can you analyze the complexity of our tasks?
-I'd like to implement task 4. What does it involve?
-```
-
-### Manual Cursor Setup
-
-If you're not using MCP, you can still set up Cursor integration:
-
-1. After initializing your project, open it in Cursor
-2. The `.cursor/rules/dev_workflow.mdc` file is automatically loaded by Cursor, providing the AI with knowledge about the task management system
-3. Place your PRD document in the `scripts/` directory (e.g., `scripts/prd.txt`)
-4. Open Cursor's AI chat and switch to Agent mode
-
-### Alternative MCP Setup in Cursor
-
-You can also set up the MCP server in Cursor settings:
-
-1. Go to Cursor settings
-2. Navigate to the MCP section
-3. Click on "Add New MCP Server"
-4. Configure with the following details:
-   - Name: "Task Master"
-   - Type: "Command"
-   - Command: "npx -y task-master-mcp"
-5. Save the settings
-
-Once configured, you can interact with Task Master's task management commands directly through Cursor's interface, providing a more integrated experience.
-
-## Initial Task Generation
-
-In Cursor's AI chat, instruct the agent to generate tasks from your PRD:
+Si ya has configurado Task Master con MCP en Cursor, la integración es automática. Puedes simplemente usar lenguaje natural para interactuar con Task Master:
 
 ```
-Please use the task-master parse-prd command to generate tasks from my PRD. The PRD is located at scripts/prd.txt.
+¿Qué tareas están disponibles para trabajar a continuación?
+¿Puedes analizar la complejidad de nuestras tareas?
+Me gustaría implementar la tarea 4. ¿Qué implica?
 ```
 
-The agent will execute:
+### Configuración Manual de Cursor
+
+Si no estás usando MCP, aún puedes configurar la integración con Cursor:
+
+1. Después de inicializar tu proyecto, ábrelo en Cursor
+2. El archivo `.cursor/rules/dev_workflow.mdc` es cargado automáticamente por Cursor, proporcionando a la IA conocimiento sobre el sistema de gestión de tareas
+3. Coloca tu documento PRD en el directorio `scripts/` (p.ej., `scripts/prd.txt`)
+4. Abre el chat de IA de Cursor y cambia al modo Agente
+
+### Configuración Alternativa de MCP en Cursor
+
+También puedes configurar el servidor MCP en la configuración de Cursor:
+
+1. Ve a la configuración de Cursor
+2. Navega a la sección MCP
+3. Haz clic en "Añadir Nuevo Servidor MCP"
+4. Configura con los siguientes detalles:
+   - Nombre: "Task Master"
+   - Tipo: "Command"
+   - Comando: "npx -y task-master-mcp"
+5. Guarda la configuración
+
+Una vez configurado, puedes interactuar con los comandos de gestión de tareas de Task Master directamente a través de la interfaz de Cursor, proporcionando una experiencia más integrada.
+
+## Generación Inicial de Tareas
+
+En el chat de IA de Cursor, instruye al agente para generar tareas desde tu PRD:
+
+```
+Por favor, usa el comando task-master parse-prd para generar tareas desde mi PRD. El PRD se encuentra en scripts/prd.txt.
+```
+
+El agente ejecutará:
 
 ```bash
 task-master parse-prd scripts/prd.txt
 ```
 
-This will:
+Esto:
 
-- Parse your PRD document
-- Generate a structured `tasks.json` file with tasks, dependencies, priorities, and test strategies
-- The agent will understand this process due to the Cursor rules
+- Analizará tu documento PRD
+- Generará un archivo `tasks.json` estructurado con tareas, dependencias, prioridades y estrategias de prueba
+- El agente entenderá este proceso debido a las reglas de Cursor
 
-### Generate Individual Task Files
+### Generar Archivos de Tareas Individuales
 
-Next, ask the agent to generate individual task files:
+A continuación, pide al agente que genere archivos de tareas individuales:
 
 ```
-Please generate individual task files from tasks.json
+Por favor, genera archivos de tareas individuales a partir de tasks.json
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
 task-master generate
 ```
 
-This creates individual task files in the `tasks/` directory (e.g., `task_001.txt`, `task_002.txt`), making it easier to reference specific tasks.
+Esto crea archivos de tareas individuales en el directorio `tasks/` (p.ej., `task_001.txt`, `task_002.txt`), facilitando la referencia a tareas específicas.
 
-## AI-Driven Development Workflow
+## Flujo de Trabajo de Desarrollo Impulsado por IA
 
-The Cursor agent is pre-configured (via the rules file) to follow this workflow:
+El agente de Cursor está preconfigurado (a través del archivo de reglas) para seguir este flujo de trabajo:
 
-### 1. Task Discovery and Selection
+### 1. Descubrimiento y Selección de Tareas
 
-Ask the agent to list available tasks:
-
-```
-What tasks are available to work on next?
-```
-
-The agent will:
-
-- Run `task-master list` to see all tasks
-- Run `task-master next` to determine the next task to work on
-- Analyze dependencies to determine which tasks are ready to be worked on
-- Prioritize tasks based on priority level and ID order
-- Suggest the next task(s) to implement
-
-### 2. Task Implementation
-
-When implementing a task, the agent will:
-
-- Reference the task's details section for implementation specifics
-- Consider dependencies on previous tasks
-- Follow the project's coding standards
-- Create appropriate tests based on the task's testStrategy
-
-You can ask:
+Pide al agente que liste las tareas disponibles:
 
 ```
-Let's implement task 3. What does it involve?
+¿Qué tareas están disponibles para trabajar a continuación?
 ```
 
-### 3. Task Verification
+El agente:
 
-Before marking a task as complete, verify it according to:
+- Ejecutará `task-master list` para ver todas las tareas
+- Ejecutará `task-master next` para determinar la siguiente tarea en la que trabajar
+- Analizará dependencias para determinar qué tareas están listas para ser trabajadas
+- Priorizará tareas basándose en el nivel de prioridad y el orden de ID
+- Sugerirá la(s) siguiente(s) tarea(s) a implementar
 
-- The task's specified testStrategy
-- Any automated tests in the codebase
-- Manual verification if required
+### 2. Implementación de Tareas
 
-### 4. Task Completion
+Al implementar una tarea, el agente:
 
-When a task is completed, tell the agent:
+- Referenciará la sección de detalles de la tarea para especificaciones de implementación
+- Considerará dependencias de tareas anteriores
+- Seguirá los estándares de codificación del proyecto
+- Creará pruebas apropiadas basadas en la estrategia de prueba de la tarea
+
+Puedes preguntar:
 
 ```
-Task 3 is now complete. Please update its status.
+Implementemos la tarea 3. ¿Qué implica?
 ```
 
-The agent will execute:
+### 3. Verificación de Tareas
+
+Antes de marcar una tarea como completa, verifica según:
+
+- La estrategia de prueba especificada en la tarea
+- Cualquier prueba automatizada en el código base
+- Verificación manual si es requerida
+
+### 4. Finalización de Tareas
+
+Cuando una tarea está completada, dile al agente:
+
+```
+La tarea 3 está ahora completa. Por favor, actualiza su estado.
+```
+
+El agente ejecutará:
 
 ```bash
 task-master set-status --id=3 --status=done
 ```
 
-### 5. Handling Implementation Drift
+### 5. Manejo de Desviaciones en la Implementación
 
-If during implementation, you discover that:
+Si durante la implementación descubres que:
 
-- The current approach differs significantly from what was planned
-- Future tasks need to be modified due to current implementation choices
-- New dependencies or requirements have emerged
+- El enfoque actual difiere significativamente de lo planeado
+- Las tareas futuras necesitan ser modificadas debido a las elecciones de implementación actuales
+- Han surgido nuevas dependencias o requisitos
 
-Tell the agent:
+Dile al agente:
 
 ```
-We've changed our approach. We're now using Express instead of Fastify. Please update all future tasks to reflect this change.
+Hemos cambiado nuestro enfoque. Ahora estamos usando Express en lugar de Fastify. Por favor, actualiza todas las tareas futuras para reflejar este cambio.
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
-task-master update --from=4 --prompt="Now we are using Express instead of Fastify."
+task-master update --from=4 --prompt="Ahora estamos usando Express en lugar de Fastify."
 ```
 
-This will rewrite or re-scope subsequent tasks in tasks.json while preserving completed work.
+Esto reescribirá o redefinirá las tareas subsiguientes en tasks.json mientras preserva el trabajo completado.
 
-### 6. Breaking Down Complex Tasks
+### 6. Desglose de Tareas Complejas
 
-For complex tasks that need more granularity:
+Para tareas complejas que necesitan más granularidad:
 
 ```
-Task 5 seems complex. Can you break it down into subtasks?
+La tarea 5 parece compleja. ¿Puedes desglosarla en subtareas?
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
 task-master expand --id=5 --num=3
 ```
 
-You can provide additional context:
+Puedes proporcionar contexto adicional:
 
 ```
-Please break down task 5 with a focus on security considerations.
+Por favor, desglosa la tarea 5 con un enfoque en consideraciones de seguridad.
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
-task-master expand --id=5 --prompt="Focus on security aspects"
+task-master expand --id=5 --prompt="Enfócate en aspectos de seguridad"
 ```
 
-You can also expand all pending tasks:
+También puedes expandir todas las tareas pendientes:
 
 ```
-Please break down all pending tasks into subtasks.
+Por favor, desglosa todas las tareas pendientes en subtareas.
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
 task-master expand --all
 ```
 
-For research-backed subtask generation using Perplexity AI:
+Para generación de subtareas respaldada por investigación usando Perplexity AI:
 
 ```
-Please break down task 5 using research-backed generation.
+Por favor, desglosa la tarea 5 usando generación respaldada por investigación.
 ```
 
-The agent will execute:
+El agente ejecutará:
 
 ```bash
 task-master expand --id=5 --research
 ```
 
-## Example Cursor AI Interactions
+## Ejemplos de Interacciones con Cursor AI
 
-### Starting a new project
-
-```
-I've just initialized a new project with Claude Task Master. I have a PRD at scripts/prd.txt.
-Can you help me parse it and set up the initial tasks?
-```
-
-### Working on tasks
+### Comenzar un nuevo proyecto
 
 ```
-What's the next task I should work on? Please consider dependencies and priorities.
+Acabo de inicializar un nuevo proyecto con Claude Task Master. Tengo un PRD en scripts/prd.txt.
+¿Puedes ayudarme a analizarlo y configurar las tareas iniciales?
 ```
 
-### Implementing a specific task
+### Trabajar en tareas
 
 ```
-I'd like to implement task 4. Can you help me understand what needs to be done and how to approach it?
+¿Cuál es la siguiente tarea en la que debería trabajar? Por favor, considera dependencias y prioridades.
 ```
 
-### Managing subtasks
+### Implementar una tarea específica
 
 ```
-I need to regenerate the subtasks for task 3 with a different approach. Can you help me clear and regenerate them?
+Me gustaría implementar la tarea 4. ¿Puedes ayudarme a entender qué debe hacerse y cómo abordarlo?
 ```
 
-### Handling changes
+### Gestionar subtareas
 
 ```
-We've decided to use MongoDB instead of PostgreSQL. Can you update all future tasks to reflect this change?
+Necesito regenerar las subtareas para la tarea 3 con un enfoque diferente. ¿Puedes ayudarme a borrarlas y regenerarlas?
 ```
 
-### Completing work
+### Manejar cambios
 
 ```
-I've finished implementing the authentication system described in task 2. All tests are passing.
-Please mark it as complete and tell me what I should work on next.
+Hemos decidido usar MongoDB en lugar de PostgreSQL. ¿Puedes actualizar todas las tareas futuras para reflejar este cambio?
 ```
 
-### Analyzing complexity
+### Completar trabajo
 
 ```
-Can you analyze the complexity of our tasks to help me understand which ones need to be broken down further?
+He terminado de implementar el sistema de autenticación descrito en la tarea 2. Todas las pruebas están pasando.
+Por favor, márcala como completa y dime en qué debería trabajar a continuación.
 ```
 
-### Viewing complexity report
+### Analizar complejidad
 
 ```
-Can you show me the complexity report in a more readable format?
+¿Puedes analizar la complejidad de nuestras tareas para ayudarme a entender cuáles necesitan ser desglosadas más?
+```
+
+### Ver informe de complejidad
+
+```
+¿Puedes mostrarme el informe de complejidad en un formato más legible?
 ```
