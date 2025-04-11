@@ -1,62 +1,62 @@
-# Configuration
+# Configuración
 
-Task Master can be configured through environment variables in a `.env` file at the root of your project.
+Task Master puede configurarse a través de variables de entorno en un archivo `.env` en la raíz de tu proyecto.
 
-## Required Configuration
+## Configuración Requerida
 
-- `ANTHROPIC_API_KEY`: Your Anthropic API key for Claude (Example: `ANTHROPIC_API_KEY=sk-ant-api03-...`)
+- `ANTHROPIC_API_KEY`: Tu clave API de Anthropic para Claude (Ejemplo: `ANTHROPIC_API_KEY=sk-ant-api03-...`)
 
-## Optional Configuration
+## Configuración Opcional
 
-- `MODEL` (Default: `"claude-3-7-sonnet-20250219"`): Claude model to use (Example: `MODEL=claude-3-opus-20240229`)
-- `MAX_TOKENS` (Default: `"4000"`): Maximum tokens for responses (Example: `MAX_TOKENS=8000`)
-- `TEMPERATURE` (Default: `"0.7"`): Temperature for model responses (Example: `TEMPERATURE=0.5`)
-- `DEBUG` (Default: `"false"`): Enable debug logging (Example: `DEBUG=true`)
-- `LOG_LEVEL` (Default: `"info"`): Console output level (Example: `LOG_LEVEL=debug`)
-- `DEFAULT_SUBTASKS` (Default: `"3"`): Default subtask count (Example: `DEFAULT_SUBTASKS=5`)
-- `DEFAULT_PRIORITY` (Default: `"medium"`): Default priority (Example: `DEFAULT_PRIORITY=high`)
-- `PROJECT_NAME` (Default: `"MCP SaaS MVP"`): Project name in metadata (Example: `PROJECT_NAME=My Awesome Project`)
-- `PROJECT_VERSION` (Default: `"1.0.0"`): Version in metadata (Example: `PROJECT_VERSION=2.1.0`)
-- `PERPLEXITY_API_KEY`: For research-backed features (Example: `PERPLEXITY_API_KEY=pplx-...`)
-- `PERPLEXITY_MODEL` (Default: `"sonar-medium-online"`): Perplexity model (Example: `PERPLEXITY_MODEL=sonar-large-online`)
+- `MODEL` (Predeterminado: `"claude-3-7-sonnet-20250219"`): Modelo de Claude a utilizar (Ejemplo: `MODEL=claude-3-opus-20240229`)
+- `MAX_TOKENS` (Predeterminado: `"4000"`): Máximo de tokens para respuestas (Ejemplo: `MAX_TOKENS=8000`)
+- `TEMPERATURE` (Predeterminado: `"0.7"`): Temperatura para respuestas del modelo (Ejemplo: `TEMPERATURE=0.5`)
+- `DEBUG` (Predeterminado: `"false"`): Habilitar registro de depuración (Ejemplo: `DEBUG=true`)
+- `LOG_LEVEL` (Predeterminado: `"info"`): Nivel de salida de consola (Ejemplo: `LOG_LEVEL=debug`)
+- `DEFAULT_SUBTASKS` (Predeterminado: `"3"`): Cantidad predeterminada de subtareas (Ejemplo: `DEFAULT_SUBTASKS=5`)
+- `DEFAULT_PRIORITY` (Predeterminado: `"medium"`): Prioridad predeterminada (Ejemplo: `DEFAULT_PRIORITY=high`)
+- `PROJECT_NAME` (Predeterminado: `"MCP SaaS MVP"`): Nombre del proyecto en metadatos (Ejemplo: `PROJECT_NAME=Mi Proyecto Asombroso`)
+- `PROJECT_VERSION` (Predeterminado: `"1.0.0"`): Versión en metadatos (Ejemplo: `PROJECT_VERSION=2.1.0`)
+- `PERPLEXITY_API_KEY`: Para características respaldadas por investigación (Ejemplo: `PERPLEXITY_API_KEY=pplx-...`)
+- `PERPLEXITY_MODEL` (Predeterminado: `"sonar-medium-online"`): Modelo de Perplexity (Ejemplo: `PERPLEXITY_MODEL=sonar-large-online`)
 
-## Example .env File
+## Ejemplo de Archivo .env
 
 ```
-# Required
-ANTHROPIC_API_KEY=sk-ant-api03-your-api-key
+# Requerido
+ANTHROPIC_API_KEY=sk-ant-api03-tu-clave-api
 
-# Optional - Claude Configuration
+# Opcional - Configuración de Claude
 MODEL=claude-3-7-sonnet-20250219
 MAX_TOKENS=4000
 TEMPERATURE=0.7
 
-# Optional - Perplexity API for Research
-PERPLEXITY_API_KEY=pplx-your-api-key
+# Opcional - API de Perplexity para Investigación
+PERPLEXITY_API_KEY=pplx-tu-clave-api
 PERPLEXITY_MODEL=sonar-medium-online
 
-# Optional - Project Info
-PROJECT_NAME=My Project
+# Opcional - Información del Proyecto
+PROJECT_NAME=Mi Proyecto
 PROJECT_VERSION=1.0.0
 
-# Optional - Application Configuration
+# Opcional - Configuración de Aplicación
 DEFAULT_SUBTASKS=3
 DEFAULT_PRIORITY=medium
 DEBUG=false
 LOG_LEVEL=info
 ```
 
-## Troubleshooting
+## Solución de Problemas
 
-### If `task-master init` doesn't respond:
+### Si `task-master init` no responde:
 
-Try running it with Node directly:
+Intenta ejecutarlo directamente con Node:
 
 ```bash
 node node_modules/claude-task-master/scripts/init.js
 ```
 
-Or clone the repository and run:
+O clona el repositorio y ejecuta:
 
 ```bash
 git clone https://github.com/eyaltoledano/claude-task-master.git
