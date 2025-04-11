@@ -1,53 +1,53 @@
-# Example Cursor AI Interactions
+# Ejemplos de Interacciones con Cursor AI
 
-Here are some common interactions with Cursor AI when using Task Master:
+Aquí hay algunas interacciones comunes con Cursor AI cuando se usa Task Master:
 
-## Starting a new project
-
-```
-I've just initialized a new project with Claude Task Master. I have a PRD at scripts/prd.txt.
-Can you help me parse it and set up the initial tasks?
-```
-
-## Working on tasks
+## Iniciar un nuevo proyecto
 
 ```
-What's the next task I should work on? Please consider dependencies and priorities.
+Acabo de inicializar un nuevo proyecto con Claude Task Master. Tengo un PRD en scripts/prd.txt.
+¿Puedes ayudarme a analizarlo y configurar las tareas iniciales?
 ```
 
-## Implementing a specific task
+## Trabajar en tareas
 
 ```
-I'd like to implement task 4. Can you help me understand what needs to be done and how to approach it?
+¿Cuál es la siguiente tarea en la que debería trabajar? Por favor, considera las dependencias y prioridades.
 ```
 
-## Managing subtasks
+## Implementar una tarea específica
 
 ```
-I need to regenerate the subtasks for task 3 with a different approach. Can you help me clear and regenerate them?
+Me gustaría implementar la tarea 4. ¿Puedes ayudarme a entender qué se necesita hacer y cómo abordarlo?
 ```
 
-## Handling changes
+## Gestionar subtareas
 
 ```
-We've decided to use MongoDB instead of PostgreSQL. Can you update all future tasks to reflect this change?
+Necesito regenerar las subtareas para la tarea 3 con un enfoque diferente. ¿Puedes ayudarme a borrarlas y regenerarlas?
 ```
 
-## Completing work
+## Manejar cambios
 
 ```
-I've finished implementing the authentication system described in task 2. All tests are passing.
-Please mark it as complete and tell me what I should work on next.
+Hemos decidido usar MongoDB en lugar de PostgreSQL. ¿Puedes actualizar todas las tareas futuras para reflejar este cambio?
 ```
 
-## Analyzing complexity
+## Completar trabajo
 
 ```
-Can you analyze the complexity of our tasks to help me understand which ones need to be broken down further?
+He terminado de implementar el sistema de autenticación descrito en la tarea 2. Todas las pruebas están pasando.
+Por favor, márcala como completa y dime en qué debería trabajar a continuación.
 ```
 
-## Viewing complexity report
+## Analizar complejidad
 
 ```
-Can you show me the complexity report in a more readable format?
+¿Puedes analizar la complejidad de nuestras tareas para ayudarme a entender cuáles necesitan ser desglosadas más?
+```
+
+## Ver informe de complejidad
+
+```
+¿Puedes mostrarme el informe de complejidad en un formato más legible?
 ```
